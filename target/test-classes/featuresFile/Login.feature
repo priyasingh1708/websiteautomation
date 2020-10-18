@@ -12,7 +12,7 @@ Feature: validate Login Page
     # Given user starts the browser and enters the url
      #Then user click on login button
      #Then user enters email as "<username>"
-     #Then user clicks on contuine
+     #Then user clicks on continue
      #Then user close the browser
     
     #Examples:
@@ -23,7 +23,7 @@ Feature: validate Login Page
     #Given user starts the browser and enters the url
     #Then user click on login button
     #Then user enters mobilenumber as "<number>"
-    #Then user clicks on contuine
+    #Then user clicks on continue
     #Then user close the browser
     
     #Examples:
@@ -34,7 +34,7 @@ Feature: validate Login Page
     #Given user starts the browser and enters the url
     #Then user click on login button
     #Then user enters mobilenumber as "<number>"
-    #Then user clicks on contuine
+    #Then user clicks on continue
     #Then user enters password as "<password>"
     #Then user close the browser
     
@@ -46,7 +46,7 @@ Feature: validate Login Page
     #Given user starts the browser and enters the url
     #Then user click on login button
     #Then user enters email as "<username>"
-    #Then user clicks on contuine
+    #Then user clicks on continue
     #Then user click on forget password link
     #Then user enter email for forget password link as "<username>"
     #Then user click on submit button

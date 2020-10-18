@@ -26,11 +26,25 @@ formatter.feature({
     }
   ]
 });
+formatter.uri("MyWishlist.feature");
+formatter.feature({
+  "line": 3,
+  "name": "validate MyWishlist Page",
+  "description": "",
+  "id": "validate-mywishlist-page",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@MyWishlist"
+    }
+  ]
+});
 formatter.scenarioOutline({
   "line": 5,
-  "name": "To Verify My Wallet",
+  "name": "Verify Wishist case for non login user from product page",
   "description": "",
-  "id": "validate-myaccount;to-verify-my-wallet",
+  "id": "validate-mywishlist-page;verify-wishist-case-for-non-login-user-from-product-page",
   "type": "scenario_outline",
   "keyword": "Scenario Outline"
 });
@@ -41,70 +55,75 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
-  "name": "user click on login button",
+  "name": "user open product page",
   "keyword": "Then "
 });
 formatter.step({
   "line": 8,
-  "name": "user enters mobilenumber as \"\u003cnumber\u003e\"",
+  "name": "user click on productwishlist icon and see loginpopup",
   "keyword": "Then "
 });
 formatter.step({
   "line": 9,
-  "name": "user clicks on contuine",
+  "name": "user enters mobilenumber as \"\u003cnumber\u003e\"",
   "keyword": "Then "
 });
 formatter.step({
   "line": 10,
-  "name": "user enters password as \"\u003cpassword\u003e\"",
+  "name": "user clicks on continue",
   "keyword": "Then "
 });
 formatter.step({
   "line": 11,
-  "name": "user click profile icon and order details",
+  "name": "user enters password as \"\u003cpassword\u003e\"",
   "keyword": "Then "
 });
 formatter.step({
   "line": 12,
+  "name": "verify product is added to wishlist",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 13,
   "name": "user close the browser",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 13,
+  "line": 14,
   "name": "",
   "description": "",
-  "id": "validate-myaccount;to-verify-my-wallet;",
+  "id": "validate-mywishlist-page;verify-wishist-case-for-non-login-user-from-product-page;",
   "rows": [
     {
       "cells": [
         "number",
         "password"
       ],
-      "line": 14,
-      "id": "validate-myaccount;to-verify-my-wallet;;1"
+      "line": 15,
+      "id": "validate-mywishlist-page;verify-wishist-case-for-non-login-user-from-product-page;;1"
     },
     {
       "cells": [
         "7972072423",
         "123456"
       ],
-      "line": 15,
-      "id": "validate-myaccount;to-verify-my-wallet;;2"
+      "line": 16,
+      "id": "validate-mywishlist-page;verify-wishist-case-for-non-login-user-from-product-page;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 15,
-  "name": "To Verify My Wallet",
+  "line": 16,
+  "name": "Verify Wishist case for non login user from product page",
   "description": "",
-  "id": "validate-myaccount;to-verify-my-wallet;;2",
+  "id": "validate-mywishlist-page;verify-wishist-case-for-non-login-user-from-product-page;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
       "line": 1,
-      "name": "@Myaccount"
+      "name": "@MyWishlist"
     }
   ]
 });
@@ -115,11 +134,16 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
-  "name": "user click on login button",
+  "name": "user open product page",
   "keyword": "Then "
 });
 formatter.step({
   "line": 8,
+  "name": "user click on productwishlist icon and see loginpopup",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 9,
   "name": "user enters mobilenumber as \"7972072423\"",
   "matchedColumns": [
     0
@@ -127,12 +151,12 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.step({
-  "line": 9,
-  "name": "user clicks on contuine",
+  "line": 10,
+  "name": "user clicks on continue",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 10,
+  "line": 11,
   "name": "user enters password as \"123456\"",
   "matchedColumns": [
     1
@@ -140,12 +164,12 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.step({
-  "line": 11,
-  "name": "user click profile icon and order details",
+  "line": 12,
+  "name": "verify product is added to wishlist",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 12,
+  "line": 13,
   "name": "user close the browser",
   "keyword": "Then "
 });
@@ -153,14 +177,21 @@ formatter.match({
   "location": "stepdefination.user_starts_the_browser_and_enters_the_url()"
 });
 formatter.result({
-  "duration": 5975968496,
+  "duration": 5111753324,
   "status": "passed"
 });
 formatter.match({
-  "location": "stepdefination.user_click_on_login_button()"
+  "location": "stepdefination.user_open_product_page()"
 });
 formatter.result({
-  "duration": 4582297213,
+  "duration": 1252263996,
+  "status": "passed"
+});
+formatter.match({
+  "location": "stepdefination.user_click_on_productwishlist_icon_and_see_loginpopup()"
+});
+formatter.result({
+  "duration": 4228842682,
   "status": "passed"
 });
 formatter.match({
@@ -173,14 +204,14 @@ formatter.match({
   "location": "stepdefination.user_enters_mobilenumber_as(String)"
 });
 formatter.result({
-  "duration": 3270485063,
+  "duration": 3302821879,
   "status": "passed"
 });
 formatter.match({
-  "location": "stepdefination.user_clicks_on_contuine()"
+  "location": "stepdefination.user_clicks_on_continue()"
 });
 formatter.result({
-  "duration": 2082097305,
+  "duration": 3117999143,
   "status": "passed"
 });
 formatter.match({
@@ -193,21 +224,21 @@ formatter.match({
   "location": "stepdefination.user_enters_password_as(String)"
 });
 formatter.result({
-  "duration": 3306008224,
+  "duration": 3272461641,
   "status": "passed"
 });
 formatter.match({
-  "location": "stepdefination.user_click_profile_icon_and_order_details()"
+  "location": "stepdefination.verify_product_is_added_to_wishlist()"
 });
 formatter.result({
-  "duration": 5865986892,
+  "duration": 4381739881,
   "status": "passed"
 });
 formatter.match({
   "location": "stepdefination.user_close_the_browser()"
 });
 formatter.result({
-  "duration": 182606169,
+  "duration": 142205872,
   "status": "passed"
 });
 formatter.uri("Signup.feature");

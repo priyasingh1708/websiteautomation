@@ -8,6 +8,7 @@ import cucumber.api.junit.Cucumber;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import pageobject.LoginLocators;
+import pageobject.MywishlistLocators;
 import pageobject.myaccountLocators;
 import pageobject.signuplocator;
 import resources.base;
@@ -18,6 +19,7 @@ public class stepdefination extends base{
 	LoginLocators L;
 	signuplocator sl;
 	myaccountLocators A;
+	MywishlistLocators W;
 	WebDriver driver;
 	
 	 @Given("^user starts the browser and enters the url$")
@@ -51,17 +53,21 @@ public class stepdefination extends base{
 	    
 	    @Then("^user enters mobilenumber as \"([^\"]*)\"$")
 	    public void user_enters_mobilenumber_as(String number) throws Throwable {
+	    	L=new LoginLocators(driver);
 	    	try {
 	     WaitForWebelement(L.getemail());
+	     L.getemail().click();
 	     L.getemail().sendKeys(number);
 	     Assert.assertTrue(L.getemail().isDisplayed());
 	     Thread.sleep(3000);
 	    	} catch(Exception e) {}
 	    }
-	    @Then("^user clicks on contuine$")
-	      public void user_clicks_on_contuine() throws Throwable {
+	    @Then("^user clicks on continue$")
+	      public void user_clicks_on_continue() throws Throwable {
+	    	try {
 	       	L.getloginbutton().click();
-	       	Thread.sleep(2000);
+	       	Thread.sleep(3000);
+	    	} catch(Exception e) {}
 	        }  
 	    
 	    @Then("^user enters password as \"([^\"]*)\"$")
@@ -483,7 +489,350 @@ public class stepdefination extends base{
 		    	  
 		      }
 		    
-	    @Then("^user close the browser$")
+		    @Then("^user click profile icon and verify empty order page$")
+		     
+		      public void user_click_profile_icon_and_verify_empty_order_page() throws Throwable {
+		    	A=new myaccountLocators(driver);
+		    	  try {
+		    		  WaitForWebelement(A.getusericon());
+		    		  Assert.assertTrue(A.getusericon().isDisplayed());
+			    	  A.getusericon().click();
+			    	  A.getmyorders().click();
+			    	  Assert.assertTrue(A.getmyorderlabel().isDisplayed());
+			    	  Assert.assertTrue(A.getbacktomyaccount().isDisplayed());
+			    	  Assert.assertTrue(A.getnoorderstxt().isDisplayed());
+			    	  Assert.assertTrue(A.getcntshpcta().isDisplayed());
+			    	  A.getcntshpcta().click();
+			          Thread.sleep(3000);
+		    		  
+		    	  }catch(Exception e) {}
+		    	  
+		      }
+		    @Then("^user click profile icon and verify address page fields$")
+		     
+		      public void user_click_profile_icon_and_verify_address_page_fields() throws Throwable {
+		    	A=new myaccountLocators(driver);
+		    	  try {
+		    		  WaitForWebelement(A.getusericon());
+		    		  Assert.assertTrue(A.getusericon().isDisplayed());
+			    	  A.getusericon().click();
+			    	  A.getmyaccount().click();
+			    	  Assert.assertTrue(A.getmyaccountlabel().isDisplayed());
+			    	  Assert.assertTrue(A.getMyaddresses().isDisplayed());
+			    	  A.getMyaddresses().click();
+			    	  Assert.assertTrue(A.getMyaddresseslabel().isDisplayed());
+			    	  Assert.assertTrue(A.getAddNewAdd().isDisplayed());
+			    	  A.getAddNewAdd().click();
+			    	  Assert.assertTrue(A.getDeliveryInfoLabel().isDisplayed());
+			    	  Assert.assertTrue(A.getReceiverNametxt().isDisplayed());
+                      Assert.assertTrue(A.getPincodetxt().isDisplayed());
+			    	  Assert.assertTrue(A.getPhonenotxt().isDisplayed());
+			    	  Assert.assertTrue(A.getAddresstxt().isDisplayed());
+			    	  Assert.assertTrue(A.getLocalitytxt().isDisplayed());
+			    	  Assert.assertTrue(A.getcitytxt().isDisplayed());
+			    	  Assert.assertTrue(A.getstatetxt().isDisplayed());
+			    	  Assert.assertTrue(A.gethome().isDisplayed());
+			    	  Assert.assertTrue(A.getoffice().isDisplayed());
+			    	  Assert.assertTrue(A.getother().isDisplayed());
+			    	  Assert.assertTrue(A.getcnlctaaddpage().isDisplayed());
+			    	  Assert.assertTrue(A.getsaveaddbtnaddpage().isDisplayed());
+			          Thread.sleep(3000);
+		    		  
+		    	  }catch(Exception e) {}
+		    	  
+		      }
+		    
+		    
+		    @Then("^user click profile icon and click on myaddress$")
+		     
+		      public void user_click_profile_icon_and_click_on_myaddress() throws Throwable {
+		    	A=new myaccountLocators(driver);
+		    	  try {
+		    		  WaitForWebelement(A.getusericon());
+		    		  Assert.assertTrue(A.getusericon().isDisplayed());
+			    	  A.getusericon().click();
+			    	  A.getmyaccount().click();
+			    	  Assert.assertTrue(A.getmyaccountlabel().isDisplayed());
+			    	  Assert.assertTrue(A.getMyaddresses().isDisplayed());
+			    	  A.getMyaddresses().click();
+			    	  Assert.assertTrue(A.getMyaddresseslabel().isDisplayed());
+			    	  Assert.assertTrue(A.getAddNewAdd().isDisplayed());
+			    	  A.getAddNewAdd().click();
+		    		  
+		    	  }catch(Exception e) {}
+		    	  
+		      }		    
+		    @Then("^user enter pincode as \"([^\"]*)\"$")
+		      public void user_enter_pincode_as(String pincode) throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(A.getPincodetxt());
+		    		  Assert.assertTrue(A.getPincodetxt().isDisplayed());		    		  
+		    		  A.getPincodetxt().sendKeys(pincode);
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		      }
+		    @Then("^user enter address as \"([^\"]*)\"$")
+		      public void user_enter_address_as(String address) throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(A.getAddresstxt());
+		    		  Assert.assertTrue(A.getAddresstxt().isDisplayed());		    		  
+		    		  A.getAddresstxt().sendKeys(address);
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		      }
+		    @Then("^user enter locality as \"([^\"]*)\"$")
+		      public void user_enter_locality_as(String Locality) throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(A.getLocalitytxt());
+		    		  Assert.assertTrue(A.getLocalitytxt().isDisplayed());		    		  
+		    		  A.getLocalitytxt().sendKeys(Locality);
+		    		  A.gethome().click();
+		    		  A.getsaveaddbtnaddpage().click();
+		    		  A.getremoveadd().click();
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		    
+		    
+		    @Then("^user click on save address btn and verify validation$")
+		      public void user_click_on_save_address_btn_and_verify_validation() throws Throwable {
+		    	  try {
+		    		  A.getsaveaddbtnaddpage().click();
+		    		  Assert.assertTrue(A.getfullnamereq().isDisplayed());
+		    		  Assert.assertTrue(A.getphonenoreq().isDisplayed());
+		    		  Assert.assertTrue(A.getpincodereq().isDisplayed());
+		    		  Assert.assertTrue(A.getaddressreq().isDisplayed());
+		    		  Assert.assertTrue(A.getLocalityreq().isDisplayed());
+		    		  Assert.assertTrue(A.getcityreq().isDisplayed());
+		    		  Assert.assertTrue(A.getstatereq().isDisplayed());
+		    		  Assert.assertTrue(A.getaddtypereq().isDisplayed());
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		    
+		    @Then("^user navigate to myaddress page$")
+		     public void user_navigate_to_myaddress_page() throws Throwable {
+		    	A=new myaccountLocators(driver);
+		    	  try {
+			    	  A.getusericon().click();
+			    	  A.getmyaccount().click();
+			    	  Assert.assertTrue(A.getmyaccountlabel().isDisplayed());
+			    	  Assert.assertTrue(A.getMyaddresses().isDisplayed());
+			    	  A.getMyaddresses().click();
+			    	  Assert.assertTrue(A.getMyaddresseslabel().isDisplayed());
+			    	  Thread.sleep(3000); 
+                     }catch(Exception e) {}
+		    	  
+		      }	
+		     
+		    @Then("^user click on Edit address$")
+		      public void user_click_on_Edit_address() throws Throwable {
+		    	  try {
+		    		  Assert.assertTrue(A.geteditadd().isDisplayed());
+		    		  A.geteditadd().click();
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		    
+		    @Then("^user update address as \"([^\"]*)\"$")
+		      public void user_update_address_as(String address) throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(A.getAddresstxt());
+		    		  Assert.assertTrue(A.getAddresstxt().isDisplayed());		    		  
+		    		  A.getAddresstxt().sendKeys(address);
+		    		  A.getsaveaddbtnaddpage().click();
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		    		    
+		    @Then("^user navigate to myprofile page$")
+		     public void user_navigate_to_myprofile_page() throws Throwable {
+		    	A=new myaccountLocators(driver);
+		    	  try {
+			    	  A.getusericon().click();
+			    	  A.getmyaccount().click();
+			    	  Assert.assertTrue(A.getmyaccountlabel().isDisplayed());
+			    	  Assert.assertTrue(A.getMyProfile().isDisplayed());
+			    	  A.getMyProfile().click();
+			    	  Assert.assertTrue(A.getMyProfilelabel().isDisplayed());
+			    	  Thread.sleep(3000); 
+                    }catch(Exception e) {}
+		    	  
+		      }			    
+		    @Then("^user verify myprofile fields$")
+		      public void user_verify_myprofile_fields() throws Throwable {
+		    	  try {
+		    		  Assert.assertTrue(A.getprofilefirstname().isDisplayed());
+		    		  Assert.assertTrue(A.getprofilelastname().isDisplayed());
+		    		  Assert.assertTrue(A.getprofileemailid().isDisplayed());
+		    		  Assert.assertTrue(A.getprofilepwd().isDisplayed());
+		    		  Assert.assertTrue(A.getprofilechangepwd().isDisplayed());
+		    		  Assert.assertTrue(A.getprofilephone().isDisplayed());
+		    		  Assert.assertTrue(A.getprofiledob().isDisplayed());
+		    		  Assert.assertTrue(A.getprofilmen().isDisplayed());
+		    		  Assert.assertTrue(A.getprofilefemale().isDisplayed());
+		    		  Assert.assertTrue(A.getprofilesavebtn().isDisplayed());
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		    @Then("^user update lastname as \"([^\"]*)\"$")
+		      public void user_update_lastname_as(String lastname) throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(A.getprofilelastname());
+		    		  Assert.assertTrue(A.getprofilelastname().isDisplayed());		    		  
+		    		  A.getprofilelastname().sendKeys(lastname);
+		    		  A.getprofilesavebtn().click();
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		   
+		    
+		    @Then("^user verify change password fields$")
+		     public void user_verify_change_password_fields() throws Throwable {
+		    	  try {
+			    	  A.getusericon().click();
+			    	  A.getmyaccount().click();
+			    	  Assert.assertTrue(A.getmyaccountlabel().isDisplayed());
+			    	  Assert.assertTrue(A.getMyProfile().isDisplayed());
+			    	  A.getMyProfile().click();
+			    	  Assert.assertTrue(A.getMyProfilelabel().isDisplayed());
+			    	  Assert.assertTrue(A.getprofilechangepwd().isDisplayed());
+			    	  A.getprofilechangepwd().click();
+			    	  Assert.assertTrue(A.getpopupchngpwdlabel().isDisplayed());
+			    	  Assert.assertTrue(A.getoldpwdtxt().isDisplayed());
+			    	  Assert.assertTrue(A.getforgetpwdonpopuplink().isDisplayed());
+			    	  Assert.assertTrue(A.getnewpwdtxt().isDisplayed());
+			    	  Assert.assertTrue(A.getconfirmpwdtxt().isDisplayed());
+			    	  Assert.assertTrue(A.getupdatepwdbtn().isDisplayed());
+			    	  Assert.assertTrue(A.getcrossicononpopup().isDisplayed());
+			    	  Thread.sleep(3000); 
+                   }catch(Exception e) {}
+		    	  
+		      }	
+		    @Then("^user enter oldpwd as \"([^\"]*)\"$")
+		      public void user_enter_oldpwd_as(String oldpwd) throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(A.getoldpwdtxt());
+		    		  A.getoldpwdtxt().click();
+                      A.getoldpwdtxt().sendKeys(oldpwd);
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		    @Then("^user enter newpwd as \"([^\"]*)\"$")
+		      public void user_enter_newpwd_as(String newpwd) throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(A.getnewpwdtxt());
+		    		  A.getnewpwdtxt().click();
+		    		  A.getnewpwdtxt().sendKeys(newpwd);
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		    @Then("^user enter confirmpwd as \"([^\"]*)\"$")
+		      public void user_enter_confirmpwd_as(String confirmpwdpwd) throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(A.getconfirmpwdtxt());
+		    		  A.getconfirmpwdtxt().click();
+		    		  A.getconfirmpwdtxt().sendKeys(confirmpwdpwd);
+		    		  A.getupdatepwdbtn().click();
+		    		  Thread.sleep(3000); 
+		    	  }catch(Exception e)  {}  
+		    	  
+		    }
+		    
+		    @Then("^user click on wishlist icon and see loginpopup$")
+		     public void user_click_on_wishlist_icon_and_see_loginpopup() throws Throwable {
+		    	W=new MywishlistLocators(driver);
+		    	  try {
+		    		  WaitForWebelement(W.getwishlisticon());
+		    		  W.getwishlisticon().click();
+		    		  WaitForWebelement(W.getloginlabel());
+		    		  Assert.assertTrue(W.getloginlabel().isDisplayed());
+			    	  Thread.sleep(3000); 
+                   }catch(Exception e) {}
+		    	  
+		      }			
+		    
+		    @Then("^user click on wishlist icon and navigate to mywishlist page$")
+		     public void user_click_on_wishlist_icon_and_navigate_to_mywishlist_page() throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(W.getwishlisticon());
+		    		  W.getwishlisticon().click();
+		    		  Assert.assertTrue(W.getwishlisticon().isDisplayed());
+		    		  Thread.sleep(3000); 
+                 }catch(Exception e) {}
+		    	  
+		      }	
+		    @Then("^user open plp page$")
+		      public void user_open_plp_page() throws Throwable {
+		          driver.navigate().to("https://p6.bewakoof.com/men-t-shirts");
+		      }
+		    
+		    @Then("^user click on plpwishlist icon and see loginpopup$")
+		     public void user_click_on_plpwishlist_icon_and_see_loginpopup() throws Throwable {
+		    	W=new MywishlistLocators(driver);
+		    	  try {
+		    		  WaitForWebelement(W.getplpwishlisticon());
+		    		  W.getplpwishlisticon().click();
+		    		  WaitForWebelement(W.getloginlabel());
+		    		  Assert.assertTrue(W.getloginlabel().isDisplayed());
+			    	  Thread.sleep(3000); 
+                  }catch(Exception e) {}
+		    	  
+		      }	
+		    
+		    @Then("^user add product to wishlist$")
+		     public void user_add_product_to_wishlist() throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(W.getplpwishlisticon());
+		    		  W.getplpwishlisticon().click();
+		    		  Assert.assertTrue(W.getplpyellowwishlisticon().isDisplayed());
+			    	  Thread.sleep(3000); 
+                 }catch(Exception e) {}
+		    	  
+		      }	
+		    
+		    @Then("^user open product page$")
+		      public void user_open_product_page() throws Throwable {
+		          driver.navigate().to("https://p6.bewakoof.com/p/travel-minimal-half-sleeve-t-shirt-for-men");
+		      }
+		    
+		    @Then("^user click on productwishlist icon and see loginpopup$")
+		     public void user_click_on_productwishlist_icon_and_see_loginpopup() throws Throwable {
+		    	W=new MywishlistLocators(driver);
+		    	  try {
+		    		  WaitForWebelement(W.getpdpwishlisticon());
+		    		  W.getpdpwishlisticon().click();
+		    		  WaitForWebelement(W.getloginlabel());
+		    		  Assert.assertTrue(W.getloginlabel().isDisplayed());
+			    	  Thread.sleep(3000); 
+                 }catch(Exception e) {}
+		    	  
+		      }	
+		    
+		    
+		    @Then("^verify product is added to wishlist$")
+		     public void verify_product_is_added_to_wishlist() throws Throwable {
+		    	  try {
+		    		  WaitForWebelement(W.getpdpwishlisticon());
+		    		  W.getpdpwishlisticon().click();
+		    		  WaitForWebelement(W.getpdpyellowwishlisticon());
+		    		  Assert.assertTrue(W.getpdpyellowwishlisticon().isDisplayed());
+		    		  W.getpdpwishlisticon().click();
+			    	  Thread.sleep(3000); 
+                }catch(Exception e) {}
+		    	  
+		      }	
+		   @Then("^user close the browser$")
 		   public void user_close_the_browser() throws Throwable {
 		    	    driver.close();   
 		    	    }
