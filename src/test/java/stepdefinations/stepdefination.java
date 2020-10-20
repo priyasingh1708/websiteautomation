@@ -464,6 +464,21 @@ public class stepdefination extends base{
 		    	  }catch(Exception e) {}
 		    	  
 		      }
+		    @Then("^user click profile icon and select Mywishlist$")
+		     
+		      public void user_click_profile_icon_and_select_Mywishlist() throws Throwable {
+		    	A=new myaccountLocators(driver);
+		    	  try {
+		    		  WaitForWebelement(A.getusericon());
+		    		  Assert.assertTrue(A.getusericon().isDisplayed());
+			    	  A.getusericon().click();
+			    	  A.getmywishlist().click();
+			    	  Assert.assertTrue(A.getmywishlist().isDisplayed());
+			          Thread.sleep(3000);
+		    		  
+		    	  }catch(Exception e) {}
+		    	  
+		      }
 		    
 		    @Then("^user click profile icon and order details$")
 		     
@@ -767,7 +782,7 @@ public class stepdefination extends base{
 		    	  try {
 		    		  WaitForWebelement(W.getwishlisticon());
 		    		  W.getwishlisticon().click();
-		    		  Assert.assertTrue(W.getwishlisticon().isDisplayed());
+		    		  Assert.assertTrue(W.getwishlisticon().isDisplayed()); 
 		    		  Thread.sleep(3000); 
                  }catch(Exception e) {}
 		    	  
@@ -832,6 +847,40 @@ public class stepdefination extends base{
                 }catch(Exception e) {}
 		    	  
 		      }	
+		    
+		    
+		    @Then("^verify user is navigated to wishlist page$")
+		     public void verify_user_is_navigated_to_wishlist_page() throws Throwable {
+		    	W=new MywishlistLocators(driver);
+		    	  try {
+		    		  String a=driver.getCurrentUrl();
+		    		  System.out.println("User is navigated to wishlist page,MY Wishlist URL is: "+a);
+		    		  Assert.assertTrue(W.getfirtproductofmywishlist().isDisplayed());
+		    		  Assert.assertTrue(W.getcloseicononmywishlist().isDisplayed());
+		    		  Assert.assertTrue(W.getmvtobag().isDisplayed());
+		    		  Assert.assertTrue(W.getmrppriceofproduct().isDisplayed());
+		    		  Assert.assertTrue(W.getloyaltylpriceofproduct().isDisplayed());
+		    		  Thread.sleep(3000); 
+               }catch(Exception e) {}
+		    	  
+		      }	
+		    @Then("^verify wishlist for new user$")
+		     public void verify_wishlist_for_new_user() throws Throwable {
+		    	W=new MywishlistLocators(driver);
+		    	  try {
+		    		  Assert.assertTrue(W.getemptywishlistimg().isDisplayed());
+                      Assert.assertTrue(W.getemptywishlist().isDisplayed());
+		    		  Assert.assertTrue(W.getcntshpwishlist().isDisplayed());
+		    		  Assert.assertTrue(W.gettryothercategoryoption().isDisplayed());
+		    		  W.getcntshpwishlist().click();
+		    		  String a=driver.getCurrentUrl();
+		    		  System.out.println("User is navigated to Homepage: "+a);
+		    		  Thread.sleep(3000); 
+              }catch(Exception e) {}
+		    	  
+		      }	
+		    
+		    
 		   @Then("^user close the browser$")
 		   public void user_close_the_browser() throws Throwable {
 		    	    driver.close();   
