@@ -1,227 +1,77 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("Login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("Bag.feature");
 formatter.feature({
   "line": 2,
-  "name": "validate Login Page",
+  "name": "Test BAG functionality",
   "description": "",
-  "id": "validate-login-page",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@Login"
-    }
-  ]
-});
-formatter.uri("MyAccount.feature");
-formatter.feature({
-  "line": 2,
-  "name": "validate Myaccount",
-  "description": "",
-  "id": "validate-myaccount",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@Myaccount"
-    }
-  ]
-});
-formatter.scenarioOutline({
-  "line": 5,
-  "name": "To Verify My Wallet",
-  "description": "",
-  "id": "validate-myaccount;to-verify-my-wallet",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 6,
-  "name": "user starts the browser and enters the url",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 7,
-  "name": "user click on login button",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 8,
-  "name": "user enters mobilenumber as \"\u003cnumber\u003e\"",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 9,
-  "name": "user clicks on contuine",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 10,
-  "name": "user enters password as \"\u003cpassword\u003e\"",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 11,
-  "name": "user click profile icon and order details",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 12,
-  "name": "user close the browser",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 13,
-  "name": "",
-  "description": "",
-  "id": "validate-myaccount;to-verify-my-wallet;",
-  "rows": [
-    {
-      "cells": [
-        "number",
-        "password"
-      ],
-      "line": 14,
-      "id": "validate-myaccount;to-verify-my-wallet;;1"
-    },
-    {
-      "cells": [
-        "7972072423",
-        "123456"
-      ],
-      "line": 15,
-      "id": "validate-myaccount;to-verify-my-wallet;;2"
-    }
-  ],
-  "keyword": "Examples"
+  "id": "test-bag-functionality",
+  "keyword": "Feature"
 });
 formatter.scenario({
-  "line": 15,
-  "name": "To Verify My Wallet",
+  "comments": [
+    {
+      "line": 4,
+      "value": "#Scenario: Verify My Bag UI page without login empty bag"
+    },
+    {
+      "line": 5,
+      "value": "#"
+    },
+    {
+      "line": 6,
+      "value": "#Given user starts the browser and enters the url"
+    },
+    {
+      "line": 7,
+      "value": "#Then user go to my cart"
+    },
+    {
+      "line": 8,
+      "value": "#Then click on Continue Shopping CTA in Cart"
+    },
+    {
+      "line": 9,
+      "value": "#Then user redirects to home page"
+    },
+    {
+      "line": 10,
+      "value": "#Then user close the browser"
+    }
+  ],
+  "line": 13,
+  "name": "Verify Size of product can be changed in Bag as per requested by User",
   "description": "",
-  "id": "validate-myaccount;to-verify-my-wallet;;2",
+  "id": "test-bag-functionality;verify-size-of-product-can-be-changed-in-bag-as-per-requested-by-user",
   "type": "scenario",
-  "keyword": "Scenario Outline",
+  "keyword": "Scenario",
   "tags": [
     {
-      "line": 1,
-      "name": "@Myaccount"
+      "line": 12,
+      "name": "@Bag"
     }
   ]
 });
 formatter.step({
-  "line": 6,
+  "line": 15,
   "name": "user starts the browser and enters the url",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 7,
-  "name": "user click on login button",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 8,
-  "name": "user enters mobilenumber as \"7972072423\"",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 9,
-  "name": "user clicks on contuine",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 10,
-  "name": "user enters password as \"123456\"",
-  "matchedColumns": [
-    1
-  ],
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 11,
-  "name": "user click profile icon and order details",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 12,
-  "name": "user close the browser",
+  "line": 16,
+  "name": "Add product to cart",
   "keyword": "Then "
 });
 formatter.match({
   "location": "stepdefination.user_starts_the_browser_and_enters_the_url()"
 });
 formatter.result({
-  "duration": 5975968496,
+  "duration": 7787263724,
   "status": "passed"
 });
 formatter.match({
-  "location": "stepdefination.user_click_on_login_button()"
+  "location": "stepdefination.Add_product_to_cart()"
 });
 formatter.result({
-  "duration": 4582297213,
+  "duration": 1175454032,
   "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "7972072423",
-      "offset": 29
-    }
-  ],
-  "location": "stepdefination.user_enters_mobilenumber_as(String)"
-});
-formatter.result({
-  "duration": 3270485063,
-  "status": "passed"
-});
-formatter.match({
-  "location": "stepdefination.user_clicks_on_contuine()"
-});
-formatter.result({
-  "duration": 2082097305,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "123456",
-      "offset": 25
-    }
-  ],
-  "location": "stepdefination.user_enters_password_as(String)"
-});
-formatter.result({
-  "duration": 3306008224,
-  "status": "passed"
-});
-formatter.match({
-  "location": "stepdefination.user_click_profile_icon_and_order_details()"
-});
-formatter.result({
-  "duration": 5865986892,
-  "status": "passed"
-});
-formatter.match({
-  "location": "stepdefination.user_close_the_browser()"
-});
-formatter.result({
-  "duration": 182606169,
-  "status": "passed"
-});
-formatter.uri("Signup.feature");
-formatter.feature({
-  "line": 3,
-  "name": "validate signup page",
-  "description": "",
-  "id": "validate-signup-page",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@signup"
-    }
-  ]
 });
 });
